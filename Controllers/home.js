@@ -1,16 +1,5 @@
 import student from "../Models/StudentSchema.js"
-// const pagenation = async(req,res)=>{
-//   const page = parseInt(req.query.page) || 1;
-//   const limit = 5;
-//   try {
-//     const totalstudent = await student.countDocuments();
-//     const totalpages = Math.ceil(totalstudent/limit);
-//     const records = await student.find({}).skip((page-1)*limit).limit(limit).exec();
-//     res.render("index",{records,currentpage:page,totalpages});
-//   } catch (error) {
-//     console.log(error.message)
-//   }
-// }
+
 const add_student = async (req, res) => {
   try {
     const newStudent = new student({
