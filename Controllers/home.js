@@ -1,16 +1,5 @@
 import student from "../Models/StudentSchema.js"
-// const pagenation = async(req,res)=>{
-//   const page = parseInt(req.query.page) || 1;
-//   const limit = 5;
-//   try {
-//     const totalstudent = await student.countDocuments();
-//     const totalpages = Math.ceil(totalstudent/limit);
-//     const records = await student.find({}).skip((page-1)*limit).limit(limit).exec();
-//     res.render("index",{records,currentpage:page,totalpages});
-//   } catch (error) {
-//     console.log(error.message)
-//   }
-// }
+
 const add_student = async (req, res) => {
   try {
     const newStudent = new student({
@@ -82,18 +71,18 @@ const edit_student_record = async (req, res) => {
 
 const update_record = async (req, res) => {
   try {
-     await student.findByIdAndUpdate(req.params.id, req.body, { 'new': true });
+    await student.findByIdAndUpdate(req.params.id, req.body, { 'new': true });
     res.redirect('/')
   } catch (error) {
     console.log(error.message)
   }
 }
-const delete_student = async(req,res)=>{
+const delete_student = async (req, res) => {
   await student.findByIdAndDelete(req.params.id);
   res.redirect('/')
 }
 
-export { home, student_new_record, add_student, edit_student_record, update_record,delete_student };
+export { home, student_new_record, add_student, edit_student_record, update_record, delete_student };
 
 
 

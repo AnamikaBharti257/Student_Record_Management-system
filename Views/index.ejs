@@ -51,31 +51,34 @@
                     <% } %>
             </tbody>
         </table>
-      <nav aria-label="Page navigation">
-  <ul class="pagination justify-content-center">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
 
-    <% if (currentPage > 1) { %>
-      <li class="page-item">
-        <a class="page-link" href="/?search=<%= search %>&page=<%= currentPage - 1 %>">Previous</a>
-      </li>
-    <% } %>
+                <% if (currentPage> 1) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="/?search=<%= search %>&page=<%= currentPage - 1 %>">Previous</a>
+                    </li>
+                    <% } %>
 
-    <% for (let i = 1; i <= totalPages; i++) { %>
-      <li class="page-item <%= currentPage === i ? 'active' : '' %>">
-        <a class="page-link" href="/?search=<%= search %>&page=<%= i %>"><%= i %></a>
-      </li>
-    <% } %>
+                        <% for (let i=1; i <=totalPages; i++) { %>
+                            <li class="page-item <%= currentPage === i ? 'active' : '' %>">
+                                <a class="page-link" href="/?search=<%= search %>&page=<%= i %>">
+                                    <%= i %>
+                                </a>
+                            </li>
+                            <% } %>
 
-    <% if (currentPage < totalPages) { %>
-      <li class="page-item">
-        <a class="page-link" href="/?search=<%= search %>&page=<%= currentPage + 1 %>">Next</a>
-      </li>
-    <% } %>
+                                <% if (currentPage < totalPages) { %>
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                            href="/?search=<%= search %>&page=<%= currentPage + 1 %>">Next</a>
+                                    </li>
+                                    <% } %>
 
-  </ul>
-</nav>
+            </ul>
+        </nav>
 
-    
+
 
     </div>
     <%- include('./base/footer.ejs') %>
